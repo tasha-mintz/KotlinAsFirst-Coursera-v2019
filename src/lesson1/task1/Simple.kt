@@ -7,47 +7,46 @@ import kotlin.math.*
 
 
 fun main(args: Array<String>) {
-    val answer1 = quadraticEquationRoot(
-            1.0, -6.0, 5.0 //change me)
-    )
-    val answer2 = angleInRadian(
-            36, 14, 35
-    )
-    val answer3 = thirdDigit1(
-            3901
-    )
-    val answer4 = thirdDigit2(
-            3861
-    )
-    println(answer1)
-    println(answer2)
-    println(answer3)
-    println(answer4)}
+    val answer1 = quadraticEquationRoot(1.0, -6.0, 5.0)
+    val answer2 = angleInRadian(36, 14, 35)
+    val answer3 = thirdDigit1(3901)
+    val answer4 = thirdDigit2(3861)
+    val answer5 = seconds(8, 20, 35)
+    val answer6 = lengthInMeters(8, 2, 11)
+    val answer7 = trackLength(3.0, 0.0, 0.0, 4.0)
+
+    println("Корень квадратного уравнения = $answer1")
+    println("Угол в радианах = $answer2")
+    println("Вторая цифра = $answer3")
+    println("Третья цифра = $answer4")
+    println("Время в секундах = $answer5")
+    println("Длина в метрах = $answer6")
+    println("Длина отрезка = $answer7")
+}
 
 /**
  * Вычисление квадрата целого числа
  */
-fun sqr(x: Int) = x * x
+fun sqr(x: Int)
+        = x * x
 
 /**
  * Вычисление квадрата вещественного числа
  */
-fun sqr(x: Double) = x * x
+fun sqr(x: Double)
+        = x * x
 
 /**
  * Вычисление дискриминанта квадратного уравнения
  */
-fun discriminant(
-        a: Double,
-        b: Double,
-        c: Double
-): Double = sqr(b) - 4 * a * c
+fun discriminant(a: Double, b: Double, c: Double): Double
+        = sqr(b) - 4 * a * c
 
 /**
  * Поиск одного из корней квадратного уравнения
  */
-fun quadraticEquationRoot(a: Double, b: Double, c: Double): Double =
-        (-b + sqrt(discriminant(a, b, c))) / (2 * a)
+fun quadraticEquationRoot(a: Double, b: Double, c: Double): Double
+        = (-b + sqrt(discriminant(a, b, c))) / (2 * a)
 
 /**
  * Поиск произведения корней квадратного уравнения
@@ -61,10 +60,8 @@ fun quadraticRootProduct(a: Double, b: Double, c: Double): Double {
 /**
  * Пример главной функции
  */
-fun main() {
-    val x1x2 = quadraticRootProduct(1.0, 13.0, 42.0)
-    println("Root product: $x1x2")
-}
+fun main() {val x1x2 = quadraticRootProduct(1.0, 13.0, 42.0)
+    println("Root product: $x1x2") }
 
 
 /**
@@ -73,8 +70,8 @@ fun main() {
  * Пользователь задает угол в градусах, минутах и секундах (например, 36 градусов 14 минут 35 секунд).
  * Вывести значение того же угла в радианах (например, 0.63256).
  */
-fun angleInRadian(deg: Int, min: Int, sec: Int):
-        Double { return (( (deg) * (PI / 180) ) + ( (min) * (PI / (180 * 60 ) ) ) + ( (sec) * (PI / (180 * 3600 ) ) )) }
+fun angleInRadian(deg: Int, min: Int, sec: Int): Double =
+        (((deg) * (PI / 180) ) + ((min) * (PI / (180 * 60))) + ((sec) * (PI / (180 * 3600))))
 
 
 /**
@@ -83,7 +80,8 @@ fun angleInRadian(deg: Int, min: Int, sec: Int):
  * Пользователь задает целое число, большее 100 (например, 3801).
  * Определить третью цифру справа в этом числе (в данном случае 8).
  */
-fun thirdDigit1(number: Int): Int = ((number%1000 - number%100) / 100)
+fun thirdDigit1(number: Int): Int =
+        ((number%1000 - number%100) / 100)
 
 
 /**
@@ -92,12 +90,8 @@ fun thirdDigit1(number: Int): Int = ((number%1000 - number%100) / 100)
  * Пользователь задает целое число, большее 100 (например, 3861).
  * Определить вторую цифру справа в этом числе (в данном случае 6).
  */
-fun thirdDigit2(number: Int): Int = ( (number%100 - number%10 ) / 10 )
-
-
-
-
-
+fun thirdDigit2(number: Int): Int =
+        ((number%100 - number%10) / 10)
 
 
 /**
@@ -106,7 +100,8 @@ fun thirdDigit2(number: Int): Int = ( (number%100 - number%10 ) / 10 )
  * Пользователь задает время в часах, минутах и секундах, например, 8:20:35.
  * Рассчитать время в секундах, прошедшее с начала суток (30035 в данном случае).
  */
-fun seconds(hours: Int, minutes: Int, seconds: Int): Int = TODO()
+fun seconds(hours: Int, minutes: Int, seconds: Int): Int =
+        (( hours * 3600) + (minutes * 60) + seconds)
 
 /**
  * Тривиальная
@@ -115,11 +110,8 @@ fun seconds(hours: Int, minutes: Int, seconds: Int): Int = TODO()
  * Определить длину того же отрезка в метрах (в данном случае 18.98).
  * 1 сажень = 3 аршина = 48 вершков, 1 вершок = 4.445 см.
  */
-fun lengthInMeters(
-        sagenes: Int,
-        arshins: Int,
-        vershoks: Int
-): Double = TODO()
+fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double =
+        ((sagenes * 48) + (arshins * 16) + vershoks) * 0.04445
 
 
 /**
@@ -128,7 +120,8 @@ fun lengthInMeters(
  * Найти длину отрезка, соединяющего точки на плоскости с координатами (x1, y1) и (x2, y2).
  * Например, расстояние между (3, 0) и (0, 4) равно 5
  */
-fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double = TODO()
+fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double =
+        sqrt(((x2-x1) * (x2-x1)) + ((y2-y1) * (y2-y1)))
 
 
 /**
