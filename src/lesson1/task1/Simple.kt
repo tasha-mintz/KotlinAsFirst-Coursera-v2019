@@ -1,49 +1,62 @@
-@file:Suppress("UNUSED_PARAMETER")
+@file:Suppress("UNUSED_PARAMETER", "DEPRECATION")
 
 package lesson1.task1
 
+import kotlin.math.sqrt
 import kotlin.math.*
 
+
+fun main(args: Array<String>) {
+    val answer1 = quadraticEquationRoot(
+            1.0, -6.0, 5.0 //change me)
+    )
+    val answer2 = angleInRadian(
+            36, 14, 35
+    )
+    val answer3 = thirdDigit1(
+            3901
+    )
+    val answer4 = thirdDigit2(
+            3861
+    )
+    println(answer1)
+    println(answer2)
+    println(answer3)
+    println(answer4)}
+
 /**
- * Пример
- *
  * Вычисление квадрата целого числа
  */
 fun sqr(x: Int) = x * x
 
 /**
- * Пример
- *
  * Вычисление квадрата вещественного числа
  */
 fun sqr(x: Double) = x * x
 
 /**
- * Пример
- *
  * Вычисление дискриминанта квадратного уравнения
  */
-fun discriminant(a: Double, b: Double, c: Double) = sqr(b) - 4 * a * c
+fun discriminant(
+        a: Double,
+        b: Double,
+        c: Double
+): Double = sqr(b) - 4 * a * c
 
 /**
- * Пример
- *
  * Поиск одного из корней квадратного уравнения
  */
-fun quadraticEquationRoot(a: Double, b: Double, c: Double) =
-    (-b + sqrt(discriminant(a, b, c))) / (2 * a)
+fun quadraticEquationRoot(a: Double, b: Double, c: Double): Double =
+        (-b + sqrt(discriminant(a, b, c))) / (2 * a)
 
 /**
- * Пример
- *
  * Поиск произведения корней квадратного уравнения
  */
 fun quadraticRootProduct(a: Double, b: Double, c: Double): Double {
     val sd = sqrt(discriminant(a, b, c))
     val x1 = (-b + sd) / (2 * a)
     val x2 = (-b - sd) / (2 * a)
-    return x1 * x2 // Результат
-}
+    return x1 * x2 }
 
 /**
  * Пример главной функции
@@ -52,6 +65,40 @@ fun main() {
     val x1x2 = quadraticRootProduct(1.0, 13.0, 42.0)
     println("Root product: $x1x2")
 }
+
+
+/**
+ * Тривиальная
+ *
+ * Пользователь задает угол в градусах, минутах и секундах (например, 36 градусов 14 минут 35 секунд).
+ * Вывести значение того же угла в радианах (например, 0.63256).
+ */
+fun angleInRadian(deg: Int, min: Int, sec: Int):
+        Double { return (( (deg) * (PI / 180) ) + ( (min) * (PI / (180 * 60 ) ) ) + ( (sec) * (PI / (180 * 3600 ) ) )) }
+
+
+/**
+ * Простая
+ *
+ * Пользователь задает целое число, большее 100 (например, 3801).
+ * Определить третью цифру справа в этом числе (в данном случае 8).
+ */
+fun thirdDigit1(number: Int): Int = ((number%1000 - number%100) / 100)
+
+
+/**
+ * Простая
+ *
+ * Пользователь задает целое число, большее 100 (например, 3861).
+ * Определить вторую цифру справа в этом числе (в данном случае 6).
+ */
+fun thirdDigit2(number: Int): Int = ( (number%100 - number%10 ) / 10 )
+
+
+
+
+
+
 
 /**
  * Тривиальная
@@ -68,15 +115,12 @@ fun seconds(hours: Int, minutes: Int, seconds: Int): Int = TODO()
  * Определить длину того же отрезка в метрах (в данном случае 18.98).
  * 1 сажень = 3 аршина = 48 вершков, 1 вершок = 4.445 см.
  */
-fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double = TODO()
+fun lengthInMeters(
+        sagenes: Int,
+        arshins: Int,
+        vershoks: Int
+): Double = TODO()
 
-/**
- * Тривиальная
- *
- * Пользователь задает угол в градусах, минутах и секундах (например, 36 градусов 14 минут 35 секунд).
- * Вывести значение того же угла в радианах (например, 0.63256).
- */
-fun angleInRadian(deg: Int, min: Int, sec: Int): Double = TODO()
 
 /**
  * Тривиальная
@@ -86,13 +130,6 @@ fun angleInRadian(deg: Int, min: Int, sec: Int): Double = TODO()
  */
 fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double = TODO()
 
-/**
- * Простая
- *
- * Пользователь задает целое число, большее 100 (например, 3801).
- * Определить третью цифру справа в этом числе (в данном случае 8).
- */
-fun thirdDigit(number: Int): Int = TODO()
 
 /**
  * Простая
@@ -119,3 +156,4 @@ fun accountInThreeYears(initial: Int, percent: Int): Double = TODO()
  * Необходимо вывести число, полученное из заданного перестановкой цифр в обратном порядке (например, 874).
  */
 fun numberRevert(number: Int): Int = TODO()
+
