@@ -78,31 +78,15 @@ class Tests {
 
     @Test
     @Tag("Easy")
-    fun thirdDigit() {
-        assertEquals(8, thirdDigit(3801))
-        assertEquals(1, thirdDigit(100))
-        assertEquals(0, thirdDigit(1000))
-    }
-
-    @Test
-    @Tag("Easy")
     fun travelMinutes() {
         assertEquals(216, travelMinutes(9, 25, 13, 1))
         assertEquals(1, travelMinutes(21, 59, 22, 0))
     }
-
-    @Test
-    @Tag("Easy")
-    fun accountInThreeYears() {
-        assertEquals(133.1, accountInThreeYears(100, 10), 1e-2)
-        assertEquals(1.0, accountInThreeYears(1, 0), 1e-2)
-        assertEquals(104.0, accountInThreeYears(13, 100), 1e-2)
-    }
-
     @Test
     @Tag("Easy")
     fun numberRevert() {
         assertEquals(874, numberRevert(478))
         assertEquals(201, numberRevert(102))
     }
+
 }
