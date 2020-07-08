@@ -150,9 +150,6 @@ fun travelMinutes(hoursDepart: Int, minutesDepart: Int, hoursArrive: Int, minute
 fun accountInThreeYears(initial: Int, percent: Int):
         Double = ((initial + (initial * (percent / 100.0))) + ((initial + (initial * (percent / 100.0)))*(percent / 100.0)) + (initial + (initial * (percent / 100.0))) + ((initial + (initial * (percent / 100.0)))*(percent / 100.0))*(percent / 100.0))
 
-// (100+(100*10/100))+((100+(100*(10/100)))*10/100)
-
-//110+
 /**
  * Простая
  *
