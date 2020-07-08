@@ -14,6 +14,9 @@ fun main(args: Array<String>) {
     val answer5 = seconds(8, 20, 35)
     val answer6 = lengthInMeters(8, 2, 11)
     val answer7 = trackLength(3.0, 0.0, 0.0, 4.0)
+    val answer8 = travelMinutes(9, 25, 13, 1)
+    val answer9 = accountInThreeYears(100, 10)
+    val answer10 = numberRevert(874)
 
     println("Корень квадратного уравнения = $answer1")
     println("Угол в радианах = $answer2")
@@ -22,6 +25,9 @@ fun main(args: Array<String>) {
     println("Время в секундах = $answer5")
     println("Длина в метрах = $answer6")
     println("Длина отрезка = $answer7")
+    println("Минуты в пути = $answer8")
+    println("Доходность = $answer9")
+    println("Обратное число = $answer10")
 }
 
 /**
@@ -131,7 +137,8 @@ fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double =
  * прибыл на станцию назначения в h2 часов m2 минут того же дня (например в 13:01).
  * Определите время поезда в пути в минутах (в данном случае 216).
  */
-fun travelMinutes(hoursDepart: Int, minutesDepart: Int, hoursArrive: Int, minutesArrive: Int): Int = TODO()
+fun travelMinutes(hoursDepart: Int, minutesDepart: Int, hoursArrive: Int, minutesArrive: Int): Int =
+        ((hoursArrive * 60) + minutesArrive) - ((hoursDepart * 60) + minutesDepart)
 
 /**
  * Простая
@@ -140,13 +147,17 @@ fun travelMinutes(hoursDepart: Int, minutesDepart: Int, hoursArrive: Int, minute
  * Сколько денег будет на счету через 3 года (с учётом сложных процентов)?
  * Например, 100 рублей под 10% годовых превратятся в 133.1 рубля
  */
-fun accountInThreeYears(initial: Int, percent: Int): Double = TODO()
+fun accountInThreeYears(initial: Int, percent: Int):
+        Double = ((initial + (initial * (percent / 100.0))) + ((initial + (initial * (percent / 100.0)))*(percent / 100.0)) + (initial + (initial * (percent / 100.0))) + ((initial + (initial * (percent / 100.0)))*(percent / 100.0))*(percent / 100.0))
 
+// (100+(100*10/100))+((100+(100*(10/100)))*10/100)
+
+//110+
 /**
  * Простая
  *
  * Пользователь задает целое трехзначное число (например, 478).
  * Необходимо вывести число, полученное из заданного перестановкой цифр в обратном порядке (например, 874).
  */
-fun numberRevert(number: Int): Int = TODO()
+fun numberRevert(number: Int): Int = (number%10)*100 + ((number%100) - (number%10)) + (number%1000 / 100)
 
